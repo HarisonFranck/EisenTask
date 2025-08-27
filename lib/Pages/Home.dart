@@ -1,3 +1,6 @@
+import 'package:eisentask/Components/EisenCard.dart';
+import 'package:eisentask/models/RangeBlock.dart';
+import 'package:eisentask/models/Task.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -9,6 +12,55 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int navIndex = 0;
+
+  List<Task> toDoTasks = [
+    Task(
+      id: 0,
+      title: "Mariner le poulet",
+      description: "Faire du poulet laqué",
+      dateStart: DateTime.now(),
+      dateFinish: DateTime.now().add(Duration(days: 5)),
+      isDone: false,
+    ),
+    Task(
+      id: 0,
+      title: "Exercice Sportive",
+      description: "Faire du sport tous les jours.",
+      dateStart: DateTime.now(),
+      dateFinish: DateTime.now().add(Duration(days: 3)),
+      isDone: false,
+    ),
+  ];
+  List<Task> toPlanTasks = [
+    Task(
+      id: 0,
+      title: "Continuer sur hellochess",
+      description: "Finir le travail de synchronisation",
+      dateStart: DateTime.now(),
+      dateFinish: DateTime.now().add(Duration(days: 5)),
+      isDone: false,
+    ),
+  ];
+  List<Task> toDelegueTasks = [
+    Task(
+      id: 0,
+      title: "Colorer les barres",
+      description: "Colorer les barres de metal pour déco",
+      dateStart: DateTime.now(),
+      dateFinish: DateTime.now().add(Duration(days: 5)),
+      isDone: false,
+    ),
+  ];
+  List<Task> toRemoveTasks = [
+    Task(
+      id: 0,
+      title: "Regarder des vidéos Zap",
+      description: "C'est pas important !",
+      dateStart: DateTime.now(),
+      dateFinish: DateTime.now().add(Duration(days: 5)),
+      isDone: false,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +75,12 @@ class _HomeState extends State<Home> {
         width: MediaQuery.of(context).size.width,
         height: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.only(top: 40.0),
+          padding: const EdgeInsets.only(top: 60.0),
 
           child: Column(
             children: [
               Container(
-                height: 120,
+                height: 110,
                 child: Column(
                   children: [
                     Row(
@@ -69,7 +121,7 @@ class _HomeState extends State<Home> {
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          "Gerer vos tâches avec facilité",
+                          "Concentrez-vous sur ce qui compte, stressez moins.",
                           textAlign: TextAlign.start,
                           style: TextStyle(color: Colors.black54),
                         ),
@@ -86,65 +138,30 @@ class _HomeState extends State<Home> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: width / 2.3,
-                          height: height / 3.3,
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(width: 0, color: Colors.black12),
-                            color: Color(0x33FF5722),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  top: 10,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    "A faire",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                        //Color(0x33FF5722)
+                        EisenCard(
+                          cardColor: Color(0x33FF5722),
+                          rangeblock: Rangeblock(
+                            title: "A faire",
+                            number: toDoTasks.length,
+                            tasks: toDoTasks,
+                            icon: Icon(
+                              Icons.check,
+                              color: Color.fromARGB(115, 255, 86, 34),
+                            ),
                           ),
                         ),
-                        Container(
-                          width: width / 2.3,
-                          height: height / 3.3,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Color(0x332196F3),
-                            border: Border.all(width: 0, color: Colors.black12),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  top: 10,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    "A plannifier",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                        //Color(0x332196F3)
+                        EisenCard(
+                          cardColor: Color(0x332196F3),
+                          rangeblock: Rangeblock(
+                            title: "A plannifier",
+                            number: toPlanTasks.length,
+                            tasks: toPlanTasks,
+                            icon: Icon(
+                              Icons.schedule_rounded,
+                              color: Color.fromARGB(115, 33, 149, 243),
+                            ),
                           ),
                         ),
                       ],
@@ -152,64 +169,30 @@ class _HomeState extends State<Home> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: width / 2.3,
-                          height: height / 3.3,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Color(0x33FFC107),
-                            border: Border.all(width: 0, color: Colors.black12),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  top: 10,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    "Déléguer",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                        //Color(0x33FFC107)
+                        EisenCard(
+                          cardColor: Color(0x33FFC107),
+                          rangeblock: Rangeblock(
+                            title: "Déléguer",
+                            number: toDelegueTasks.length,
+                            tasks: toDelegueTasks,
+                            icon: Icon(
+                              Icons.group,
+                              color: Color.fromARGB(115, 255, 193, 7),
+                            ),
                           ),
                         ),
-                        Container(
-                          width: width / 2.3,
-                          height: height / 3.3,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Color(0x339E9E9E),
-                            border: Border.all(width: 0, color: Colors.black12),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  top: 10,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    textAlign: TextAlign.start,
-                                    "Éliminer",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                        //Color(0x339E9E9E)
+                        EisenCard(
+                          cardColor: Color(0x339E9E9E),
+                          rangeblock: Rangeblock(
+                            title: "Eliminer",
+                            number: toRemoveTasks.length,
+                            tasks: toRemoveTasks,
+                            icon: Icon(
+                              Icons.delete,
+                              color: Color.fromARGB(115, 158, 158, 158),
+                            ),
                           ),
                         ),
                       ],
@@ -219,7 +202,7 @@ class _HomeState extends State<Home> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 30.0),
                 child: Container(
                   width: width,
                   height: 80,
@@ -260,7 +243,7 @@ class _HomeState extends State<Home> {
                                   });
                                 },
                                 icon: Icon(
-                                  Icons.bar_chart,
+                                  Icons.home_rounded,
                                   weight: 40,
                                   size: 35,
                                   color:
@@ -288,7 +271,7 @@ class _HomeState extends State<Home> {
                                   });
                                 },
                                 icon: Icon(
-                                  Icons.stars,
+                                  Icons.bar_chart,
                                   weight: 40,
                                   size: 35,
                                   color:
