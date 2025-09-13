@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  calendar_date_picker2:
+    dependency: "direct main"
+    description:
+      name: calendar_date_picker2
+      sha256: "9c9b5586fb512bf1181d7f3a6273bffa9e65a4e16689902e112771e7d71d063b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   characters:
     dependency: transitive
     description:
@@ -49,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dotted_border:
+    dependency: "direct main"
+    description:
+      name: dotted_border
+      sha256: "99b091ec6891ba0c5331fdc2b502993c7c108f898995739a73c6845d71dad70c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   fake_async:
     dependency: transitive
     description:
@@ -70,11 +86,24 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
+  flutter_localizations:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: "3df61194eb431efc39c4ceba583b95633a403f46c9fd341e550ce0bfa50e9aa5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.2"
   leak_tracker:
     dependency: transitive
     description:
@@ -176,6 +205,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  syncfusion_flutter_charts:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_charts
+      sha256: e78e3bf638bbb49011ec5300556fc076bc1df36aae2262c1e5a5c25cf7baee30
+      url: "https://pub.dev"
+    source: hosted
+    version: "31.1.17"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      sha256: "917022225a57ddf1287f9cd840acdcfab3197b92e84964476f6a2f9e87a78ace"
+      url: "https://pub.dev"
+    source: hosted
+    version: "31.1.17"
   term_glyph:
     dependency: transitive
     description:
@@ -210,4 +255,4 @@ packages:
     version: "15.0.0"
 sdks:
   dart: ">=3.8.0-0 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.29.0"

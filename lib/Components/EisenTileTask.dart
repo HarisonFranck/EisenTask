@@ -1,5 +1,6 @@
 import 'package:eisentask/models/Task.dart';
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class EisenTileTask extends StatefulWidget {
   EisenTileTask({
@@ -28,10 +29,41 @@ class _EisentiletaskState extends State<EisenTileTask> {
         print(widget.task.title);
         //Navigator.push(context, MaterialPageRoute(builder: (context)=>));
       },
-      child: Container(
+      child: DottedBorder(
+        options: RoundedRectDottedBorderOptions(
+          radius: Radius.circular(10),
+          color: widget.colorTile,
+          dashPattern: [4, 4],
+          strokeWidth: 2,
+        ),
+        child: Row(
+          children: [
+            Container(width: 40, child: widget.icon),
+            Container(
+              width: 100,
+
+              child: Column(
+                children: [
+                  Text(
+                    widget.task.title,
+                    style: TextStyle(color: Colors.black54, fontSize: 15),
+                  ),
+                  Text(
+                    overflow: TextOverflow.ellipsis,
+                    widget.task.description,
+                    style: TextStyle(color: Colors.black45, fontSize: 13),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      /*Container(
         width: widget.width,
         height: widget.height,
         decoration: BoxDecoration(
+          border: Border.all(),
           boxShadow: [
             BoxShadow(
               blurRadius: 4,
@@ -64,7 +96,7 @@ class _EisentiletaskState extends State<EisenTileTask> {
             ),
           ],
         ),
-      ),
+      ),*/
     );
   }
 }

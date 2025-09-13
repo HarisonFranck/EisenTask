@@ -36,6 +36,7 @@ class _EisenCardState extends State<EisenCard> {
       width: width / 2.3,
       height: height / 3.3,
       decoration: BoxDecoration(
+        border: Border.all(color: widget.cardColor, width: 2),
         borderRadius: BorderRadius.circular(20),
         color: widget.cardColor,
       ),
@@ -73,7 +74,7 @@ class _EisenCardState extends State<EisenCard> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               width: double.infinity,
-              height: height / 4.2,
+              height: height / 4.3,
               child: StreamBuilder<List<Task>>(
                 stream: getTaskStream(),
                 builder: (context, data) {

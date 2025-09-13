@@ -1,5 +1,7 @@
 import 'package:eisentask/Pages/Home.dart';
+import 'package:eisentask/Pages/PageIndex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +14,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EisenTask',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // anglais
+        Locale('fr'), // français si tu veux
+      ],
+      title: 'EisenTask',
+
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Home(),
+      home: const PageIndex(),
     );
   }
 }
